@@ -1,31 +1,183 @@
 <!doctype html>
 <html lang="pl">
 <head>
-<meta charset="utf-8">
-<title>Dziennik patrzenia władzy na ręce</title>
-<style>
-body{font-family:system-ui;max-width:800px;margin:auto;padding:20px}
-article{border-bottom:1px solid #ccc;margin-bottom:20px;padding-bottom:15px}
-h1{margin-top:0}
-small{color:#666}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Patrzę władzy na ręce — dziennik lokalny</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+    header { padding: 18px 16px; border-bottom: 1px solid rgba(127,127,127,.35); }
+    header h1 { margin: 0 0 6px 0; font-size: 20px; }
+    header p { margin: 0; opacity: .8; font-size: 13px; line-height: 1.35; }
+
+    nav { display:flex; gap:10px; flex-wrap: wrap; margin-top: 12px; }
+    nav a {
+      text-decoration: none; color: inherit;
+      padding: 8px 10px; border-radius: 999px;
+      border: 1px solid rgba(127,127,127,.35);
+      background: rgba(127,127,127,.08);
+      font-size: 13px;
+    }
+    nav a:hover { background: rgba(127,127,127,.16); }
+
+    main { max-width: 980px; margin: 0 auto; padding: 14px; }
+    .grid { display:grid; grid-template-columns: 340px 1fr; gap: 14px; }
+    @media (max-width: 980px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card { border: 1px solid rgba(127,127,127,.35); border-radius: 14px; padding: 12px; background: rgba(127,127,127,.06); }
+    h2 { margin: 0 0 10px 0; font-size: 16px; }
+    h3 { margin: 0; font-size: 16px; }
+    .muted { opacity: .75; font-size: 12px; line-height: 1.4; }
+
+    .toc { display:flex; flex-direction: column; gap: 8px; }
+    .toc a { text-decoration:none; color:inherit; padding:8px 10px; border-radius: 10px; border:1px solid rgba(127,127,127,.25); background: rgba(127,127,127,.04); }
+    .toc a:hover { background: rgba(127,127,127,.10); }
+    .pill { display:inline-block; padding: 3px 8px; border-radius: 999px; border: 1px solid rgba(127,127,127,.35); font-size: 12px; opacity: .9; }
+
+    article { border: 1px solid rgba(127,127,127,.25); border-radius: 14px; padding: 14px; background: rgba(127,127,127,.04); margin-bottom: 14px; }
+    .meta { display:flex; gap:8px; flex-wrap: wrap; margin-top: 8px; }
+    .content { white-space: pre-wrap; margin-top: 10px; line-height: 1.5; font-size: 14px; }
+
+    footer { padding: 18px 16px; border-top: 1px solid rgba(127,127,127,.35); opacity: .8; font-size: 12px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+  </style>
 </head>
 <body>
 
-<h1>🗒️ Patrzę władzy na ręce</h1>
-<p>Publiczny dziennik działań obywatelskich w moim mieście.</p>
+<header id="start">
+  <h1>🗒️ Patrzę władzy na ręce — dziennik lokalny</h1>
+  <p>
+    To publiczny dziennik moich działań obywatelskich w moim mieście: co sprawdzam, jakie pisma składam,
+    co dostaję w odpowiedzi i jakie są kolejne kroki. Bez sensacji — dokumenty, fakty, terminy.
+  </p>
 
-<!-- TU DODAJESZ WPISY -->
+  <nav>
+    <a href="#start">Start</a>
+    <a href="#wpisy">Wpisy</a>
+    <a href="#o-stronie">O stronie</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+</header>
 
-<article>
-<h2>Start projektu</h2>
-<small>22.02.2026</small>
-<p>
-Zaczynam publiczny dziennik spraw, które sprawdzam w mieście.
-Będę opisywał wnioski o informację publiczną, decyzje urzędu
-i kolejne kroki.
-</p>
-</article>
+<main>
+  <div class="grid">
+    <!-- LEWA KOLUMNA -->
+    <aside class="card">
+      <h2>Spis wpisów</h2>
+      <div class="muted" style="margin-bottom:10px;">
+        Kliknij tytuł, żeby przejść do wpisu. Spis tworzy się automatycznie z tytułów wpisów.
+      </div>
+      <div id="toc" class="toc"></div>
+
+      <hr style="border:none;border-top:1px solid rgba(127,127,127,.25);margin:12px 0">
+
+      <div class="muted">
+        <div><span class="pill">Tip</span> Żeby dodać nowy wpis, skopiuj blok <code>&lt;article&gt;...&lt;/article&gt;</code> i wklej na górę sekcji „Wpisy”.</div>
+      </div>
+    </aside>
+
+    <!-- PRAWA KOLUMNA -->
+    <section>
+      <div class="card" id="o-stronie" style="margin-bottom:14px;">
+        <h2>O stronie</h2>
+        <div class="muted">
+          Publikuję tu krótkie podsumowania i statusy spraw. Jeśli wchodzą w grę dokumenty (np. odpowiedzi urzędu),
+          opisuję co w nich jest i podaję linki do źródeł (jeśli są publiczne).
+          <br><br>
+          Cel: więcej przejrzystości i mniej „zamiatania pod dywan”, bez politykowania.
+        </div>
+      </div>
+
+      <h2 id="wpisy">Wpisy</h2>
+
+      <!-- =========================
+           DODAWAJ WPISY POD TĄ LINIĄ
+           ========================= -->
+
+      <article class="post" id="post-2026-02-22">
+        <h3>Start: po co ten dziennik i jak będę działał</h3>
+        <div class="meta">
+          <span class="pill">22.02.2026</span>
+          <span class="pill">start</span>
+          <span class="pill">transparentność</span>
+        </div>
+        <div class="content">
+Zaczynam publiczny dziennik patrzenia lokalnej władzy na ręce — tylko w moim mieście.
+
+Co tu będzie:
+• krótkie wpisy „co sprawdziłem / co wysłałem / na co czekam”
+• streszczenia odpowiedzi urzędu (bez lania wody)
+• terminy i kolejne kroki (żeby sprawy nie ginęły po drodze)
+• linki do źródeł, jeśli coś jest publicznie dostępne
+
+Jak będę pracował:
+1) Zbieram konkretny temat (umowa, przetarg, decyzja, wydatki, inwestycja).
+2) Szukam podstawowych informacji w oficjalnych miejscach (BIP, ogłoszenia, uchwały).
+3) Jeśli czegoś brakuje — składam wniosek o informację publiczną albo pytanie do urzędu.
+4) Publikuję status i wnioski: co wyszło, co jest niejasne, co dalej.
+
+Dlaczego publicznie:
+Bo kiedy działania są jawne i uporządkowane, trudniej jest zamiatać rzeczy pod dywan.
+A jednocześnie łatwiej innym mieszkańcom dołączyć, podpowiedzieć, skorygować albo wziąć część tematów na siebie.
+
+Jeśli masz pomysł na sprawę do sprawdzenia — napisz (kontakt na dole strony).
+        </div>
+      </article>
+
+      <!-- PRZYKŁAD KOLEJNEGO WPISU (usuń albo zostaw jako szablon)
+      <article class="post" id="post-2026-02-23">
+        <h3>Temat: …</h3>
+        <div class="meta">
+          <span class="pill">23.02.2026</span>
+          <span class="pill">wniosek</span>
+          <span class="pill">umowy</span>
+        </div>
+        <div class="content">
+Opis…
+        </div>
+      </article>
+      -->
+
+      <div class="card" id="kontakt" style="margin-top:14px;">
+        <h2>Kontakt</h2>
+        <div class="muted">
+          Najprościej: dodaj tu swój e-mail albo link do profilu (FB / X / Mastodon).
+          <br><br>
+          ✉️ E-mail: <strong>WSTAW_TUTAJ_EMAIL</strong>
+          <br>
+          🔗 Link: <strong>WSTAW_TUTAJ_LINK</strong>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  Strona stoi na GitHub Pages. Aktualizacje robię ręcznie przez edycję pliku <code>index.html</code>.
+</footer>
+
+<script>
+  // Automatyczny spis wpisów (TOC) z artykułów .post
+  const toc = document.getElementById("toc");
+  const posts = Array.from(document.querySelectorAll("article.post"));
+
+  if (!posts.length) {
+    toc.innerHTML = '<div class="muted">Brak wpisów.</div>';
+  } else {
+    // sort: najnowsze na górze (po ID z datą lub po kolejności w HTML)
+    // U Ciebie i tak wklejasz nowe na górę, więc zostawiamy kolejność DOM.
+    posts.forEach(p => {
+      const titleEl = p.querySelector("h3");
+      const metaPills = Array.from(p.querySelectorAll(".meta .pill"));
+      const date = metaPills.length ? metaPills[0].textContent : "";
+      const a = document.createElement("a");
+      a.href = "#" + p.id;
+      a.innerHTML = `<strong>${titleEl ? titleEl.textContent : "Wpis"}</strong><div class="muted">${date}</div>`;
+      toc.appendChild(a);
+    });
+  }
+</script>
 
 </body>
 </html>
